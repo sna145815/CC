@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mapper DTD 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL Mapping -->
+<mapper namespace="com.checki.checkitem.service.CheckItemDao">
+    <!--전체 리스트조회-->
+
+    <insert id="insert" parameterType="com.checki.checkitem.domain.CheckItem">
+          INSERT INTO tbl_check_item_mst(
+            check_class_idx,
+            check_sub_class_idx, 
+            check_item, 
+            create_by, 
+            create_dt,
+            update_by, 
+            update_dt,
+            check_item_type,
+            check_content
+        )
+        VALUES(
+            #{check_class_idx},
+            #{check_sub_class_idx},
+            #{check_item},
+            #{create_by},
+            #{create_dt},
+            #{update_by},
+            #{update_dt},
+            #{check_item_type},
+            #{check_content}
+        )
+    </insert>
+    
+    <select id="find"  resultType="com.checki.checkitem.domain.CheckItemPlus">
+        SELECT * FROM tbl_check_item_mst
+    </select>
+</mapper>
